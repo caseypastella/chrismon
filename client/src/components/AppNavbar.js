@@ -59,7 +59,7 @@ class AppNavbar extends Component {
 
     return (
       <div>
-        <Navbar color='dark' dark expand='sm' className='mb-5'>
+        <Navbar color='dark' dark expand='sm' className='mb-4'>
           <Container>
             <NavbarBrand href='/'>Chrismon Care Landscaping</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />

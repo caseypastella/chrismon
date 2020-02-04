@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Container, Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Example from './Carousel';
+import Cards from './Cards';
+
 
 class ShoppingList extends Component {
   static propTypes = {
     isAuthenticated: PropTypes.bool
   };
 
-  componentDidMount() {
-  }
+  
+ 
+
 
   render() {
-    return 
+    return <div>
+    <Example />
+    <Cards />
+
+    </div>
+      };
+    }
     
-  }
-}
+  
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated

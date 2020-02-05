@@ -7,7 +7,7 @@ import './Cards.css';
 const Cards = (props) => {
     return (
         <div>
-            <Container>
+            <Container className = "container">
                 <Row>
                     <Col sm="4">
                         <Card className = "card1">
@@ -37,7 +37,7 @@ const Cards = (props) => {
                             </CardBody>
                         </Card>  
                     </Col>
-                    <Col sm="4">
+                    <Col xs="4">
                         <Card className = "card3"> 
                             <CardImg top width = "100%" 
                             src= {process.env.PUBLIC_URL + '/jpeg-7.jpg'}

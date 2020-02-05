@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
+import {Redirect, Route} from 'react-router-dom';
 
 class LoginModal extends Component {
   state = {
@@ -74,7 +75,8 @@ class LoginModal extends Component {
 
     // Attempt to login
     this.props.login(user);
-  };
+  }
+    
 
   render() {
     return (
@@ -130,4 +132,7 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { login, clearErrors }
-)(LoginModal);
+)(LoginModal)
+
+
+

@@ -14,6 +14,8 @@ import PropTypes from 'prop-types';
 import RegisterModal from './auth/RegisterModal';
 import LoginModal from './auth/LoginModal';
 import Logout from './auth/Logout';
+import {LinkContainer} from 'react-router-bootstrap';
+import Services from './Services'; 
 
 class AppNavbar extends Component {
   state = {
@@ -64,6 +66,16 @@ class AppNavbar extends Component {
             <NavbarBrand href='/'>Chrismon Care Landscaping</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
+            <LinkContainer to = "/services">
+              <NavLink>
+                Services
+              </NavLink>
+            </LinkContainer>
+            <LinkContainer to = "/Contact">
+              <NavLink>
+                Contact
+              </NavLink>
+            </LinkContainer>
               <Nav className='ml-auto' navbar>
                 {isAuthenticated ? authLinks : guestLinks}
               </Nav>

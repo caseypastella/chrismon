@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container, Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Example from './Carousel';

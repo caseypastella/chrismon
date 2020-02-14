@@ -71,8 +71,8 @@ app.post("/send", (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: "casey.pastella@cnu.edu",
-      pass: "Assasin@4403"
+      user: config.get("USER"),
+      pass: config.get("PASSWORD")
     },
     tls: {
       rejectUnauthorized: false

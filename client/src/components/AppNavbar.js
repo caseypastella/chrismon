@@ -1,21 +1,35 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from "react";
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  FormGroup,
+  Label,
+  Input,
   NavLink,
-  Container
-} from 'reactstrap';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import RegisterModal from './auth/RegisterModal';
-import LoginModal from './auth/LoginModal';
-import Logout from './auth/Logout';
-import {LinkContainer} from 'react-router-bootstrap';
-import Services from './Services'; 
+  Alert,
+  UncontrolledDropdown,
+  Container,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  Nav,
+  DropdownItem,
+  DropdownToggle,
+  DropdownMenu,
+  NavItem
+} from "reactstrap";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import RegisterModal from "./auth/RegisterModal";
+import LoginModal from "./auth/LoginModal";
+import Logout from "./auth/Logout";
+import "./AppNavbar.css";
+import { Route, Router } from "react-router-dom";
+import * as ROUTES from "../actions/routes";
 
 class AppNavbar extends Component {
   state = {
@@ -37,50 +51,62 @@ class AppNavbar extends Component {
 
     const authLinks = (
       <Fragment>
-        <NavItem>
-          <span className='navbar-text mr-3'>
-            <strong>{user ? `Welcome ${user.name}` : ''}</strong>
+        <NavLink>
+          <span className="navbar-text mr-3">
+            <strong>{user ? `Welcome ${user.name}` : ""}</strong>
           </span>
-        </NavItem>
-        <NavItem>
+        </NavLink>
+        <NavLink>
           <Logout />
-        </NavItem>
+        </NavLink>
       </Fragment>
     );
 
     const guestLinks = (
       <Fragment>
-        <NavItem>
+        <NavLink>
           <RegisterModal />
-        </NavItem>
-        <NavItem>
+        </NavLink>
+        <NavLink>
           <LoginModal />
-        </NavItem>
+        </NavLink>
       </Fragment>
     );
 
     return (
       <div>
-        <Navbar color='dark' dark expand='sm' className='mb-4'>
-          <Container>
-            <NavbarBrand href='/'>Chrismon Care Landscaping</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-            <LinkContainer to = "/services">
-              <NavLink>
-                Services
-              </NavLink>
-            </LinkContainer>
-            <LinkContainer to = "/Contact">
-              <NavLink>
-                Contact
-              </NavLink>
-            </LinkContainer>
-              <Nav className='ml-auto' navbar>
-                {isAuthenticated ? authLinks : guestLinks}
-              </Nav>
-            </Collapse>
-          </Container>
+        <Navbar color="dark" dark expand="sm" id="navbar">
+          <NavbarBrand className="navbar-brand" href="/">
+            Chrismon Care Landscaping
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="mr-auto">
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Services
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem href="/lawncare">Lawn care</DropdownItem>
+
+                  <DropdownItem href="/installs">
+                    Mulch and bed installation
+                  </DropdownItem>
+
+                  <DropdownItem href="/hardscapes">Hardscapes</DropdownItem>
+
+                  <DropdownItem href="/pruning">
+                    Pruning and Tree care
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              <NavLink href="/contact">Contact</NavLink>
+            </Nav>
+            <Nav className="ml-auto">
+              {isAuthenticated ? authLinks : guestLinks}
+            </Nav>
+          </Collapse>
         </Navbar>
       </div>
     );
@@ -91,7 +117,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  null
-)(AppNavbar);
+export default connect(mapStateToProps, null)(AppNavbar);

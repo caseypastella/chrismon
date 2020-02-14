@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://chrismonlandscaping:chrismonlandscaping@cluster0-muo8h.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "sl_myJwtSecret"
+  "jwtSecret": "sl_myJwtSecret",
+  "USER": "casey.pastella@cnu.edu",
+  "PASSWORD": "Assasin@4403"
 }

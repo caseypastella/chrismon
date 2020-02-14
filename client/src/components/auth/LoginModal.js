@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Button,
   Modal,
@@ -10,18 +10,18 @@ import {
   Input,
   NavLink,
   Alert
-} from 'reactstrap';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { login } from '../../actions/authActions';
-import { clearErrors } from '../../actions/errorActions';
-import {Redirect, Route} from 'react-router-dom';
+} from "reactstrap";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { login } from "../../actions/authActions";
+import { clearErrors } from "../../actions/errorActions";
+import { Redirect, Route } from "react-router-dom";
 
 class LoginModal extends Component {
   state = {
     modal: false,
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     msg: null
   };
 
@@ -36,7 +36,7 @@ class LoginModal extends Component {
     const { error, isAuthenticated } = this.props;
     if (error !== prevProps.error) {
       // Check for register error
-      if (error.id === 'LOGIN_FAIL') {
+      if (error.id === "LOGIN_FAIL") {
         this.setState({ msg: error.msg.msg });
       } else {
         this.setState({ msg: null });
@@ -75,13 +75,12 @@ class LoginModal extends Component {
 
     // Attempt to login
     this.props.login(user);
-  }
-    
+  };
 
   render() {
     return (
       <div>
-        <NavLink onClick={this.toggle} href='#'>
+        <NavLink onClick={this.toggle} href="#">
           Login
         </NavLink>
 
@@ -89,30 +88,30 @@ class LoginModal extends Component {
           <ModalHeader toggle={this.toggle}>Login</ModalHeader>
           <ModalBody>
             {this.state.msg ? (
-              <Alert color='danger'>{this.state.msg}</Alert>
+              <Alert color="danger">{this.state.msg}</Alert>
             ) : null}
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for='email'>Email</Label>
+                <Label for="email">Email</Label>
                 <Input
-                  type='email'
-                  name='email'
-                  id='email'
-                  placeholder='Email'
-                  className='mb-3'
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  className="mb-3"
                   onChange={this.onChange}
                 />
 
-                <Label for='password'>Password</Label>
+                <Label for="password">Password</Label>
                 <Input
-                  type='password'
-                  name='password'
-                  id='password'
-                  placeholder='Password'
-                  className='mb-3'
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  className="mb-3"
                   onChange={this.onChange}
                 />
-                <Button color='dark' style={{ marginTop: '2rem' }} block>
+                <Button color="primary" style={{ marginTop: "2rem" }} block>
                   Login
                 </Button>
               </FormGroup>
@@ -129,10 +128,4 @@ const mapStateToProps = state => ({
   error: state.error
 });
 
-export default connect(
-  mapStateToProps,
-  { login, clearErrors }
-)(LoginModal)
-
-
-
+export default connect(mapStateToProps, { login, clearErrors })(LoginModal);

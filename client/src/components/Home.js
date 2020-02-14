@@ -1,35 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Example from './Carousel';
-import Cards from './Cards';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import Example from "./Carousel";
+import Cards from "./Cards";
+import AppNavbar from "./AppNavbar";
+import "./Home.css";
+import { Container } from "reactstrap";
 
-
-class ShoppingList extends Component {
+class Home extends Component {
   static propTypes = {
     isAuthenticated: PropTypes.bool
   };
 
-  
- 
-
-
   render() {
-    return <div>
-    <Example />
-    <Cards />
-
-    </div>
-      };
-    }
-    
-  
+    return (
+      <div>
+        <div className="header">
+          <AppNavbar />
+          <Example />
+        </div>
+        <Cards />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(
-  mapStateToProps,
-  { }
-)(ShoppingList);
+export default connect(mapStateToProps, {})(Home);

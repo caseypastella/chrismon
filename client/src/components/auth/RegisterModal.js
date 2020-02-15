@@ -86,8 +86,8 @@ class RegisterModal extends Component {
           Register
         </NavLink>
 
-        <Modal Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader>Register</ModalHeader>
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>Register</ModalHeader>
           <ModalBody>
             {this.state.msg ? (
               <Alert color="danger">{this.state.msg}</Alert>
@@ -123,7 +123,7 @@ class RegisterModal extends Component {
                   className="mb-3"
                   onChange={this.onChange}
                 />
-                <Button color="primary" style={{ marginTop: "2rem" }} block>
+                <Button color="primary" style={{ marginTop: "2rem" }}>
                   Register
                 </Button>
               </FormGroup>

@@ -24,7 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
+        <div className="app">
           <Route exact path={ROUTES.HOME} component={Home} />
 
           <Route exact path={ROUTES.LAWNCARE} component={Lawncare} />

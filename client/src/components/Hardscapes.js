@@ -3,9 +3,10 @@ import AppNavbar from "./AppNavbar";
 import { Container, Jumbotron, Button, Media } from "reactstrap";
 import "./AppNavbar.css";
 import "./Hardscapes.css";
+import Footer from "./Footer";
 const Hardscapes = () => {
   return (
-    <div>
+    <div className="hardscapes">
       <div className="mb-5">
         <AppNavbar />
       </div>
@@ -27,7 +28,7 @@ const Hardscapes = () => {
           </p>
         </Jumbotron>
       </Container>
-      <Container className="mt-5" fluid={true}>
+      <Container className=" container mt-5" fluid={true}>
         <Media>
           <Media left href="#">
             <Media
@@ -82,6 +83,7 @@ const Hardscapes = () => {
           </Media>
         </Media>
       </Container>
+      <Footer />
     </div>
   );
 };

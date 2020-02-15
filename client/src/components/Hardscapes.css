@@ -1,4 +1,19 @@
 .mediaImg {
-  width: 200px;
-  height: 200px;
+  width: 500px;
+  height: 300px;
+}
+.hardscapes {
+  background-color: gray;
+}
+
+.mediaBody {
+  margin-left: 100px;
+  text-align: center;
+  color: white;
+  font-family: Verdana, sans-serif;
+}
+.mediaHeading {
+  margin-bottom: 20px;
+  font-family: Verdana, sans-serif;
+  font-size: 25px;
 }

@@ -14,25 +14,33 @@ import {
 import axios from "axios";
 
 class Contact extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      description: "",
-      address: "",
-      city: "",
-      state: "",
-      zipCode: "",
-      phoneNumber: ""
-    };
-  }
+  state = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    description: "",
+    address: "",
+    city: "",
+    stateName: "",
+    zipCode: "",
+    phoneNumber: ""
+  };
 
   onSubmit = e => {
+    let data = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      description: this.state.description,
+      address: this.state.address,
+      city: this.state.city,
+      stateName: this.state.stateName,
+      zipCode: this.state.zipCode,
+      phoneNumber: this.state.phoneNumber
+    };
     e.preventDefault();
     axios
-      .post("http://localhost:3000/send", this.state)
+      .post("http://localhost:3000/send", data)
       .then(response => {
         if (response.data.status === "success") {
           alert("Message Sent");
@@ -54,34 +62,9 @@ class Contact extends React.Component {
       city: "",
       state: "",
       zipCode: "",
-      phoneNumber: ""
+      phoneNumber: null
     });
   }
-
-  onFirstNameChange = e => {
-    this.setState({ [e.target.firstName]: e.target.value });
-  };
-  onAddressChanged = e => {
-    this.setState({ [e.target.address]: e.target.value });
-  };
-  onEmailChange = e => {
-    this.setState({ [e.target.email]: e.target.value });
-  };
-  onLastNameChange = e => {
-    this.setState({ [e.target.lastName]: e.target.value });
-  };
-  onCityChanged = e => {
-    this.setState({ [e.target.city]: e.target.value });
-  };
-  onZipCodeChanged = e => {
-    this.setState({ [e.target.zipCode]: e.target.value });
-  };
-  onDescriptionChanged = e => {
-    this.setState({ [e.target.description]: e.target.value });
-  };
-  onPhoneNumberChanged = e => {
-    this.setState({ [e.target.phoneNumber]: e.target.value });
-  };
 
   render() {
     return (
@@ -96,51 +79,56 @@ class Contact extends React.Component {
                   type="email"
                   name="email"
                   id="formEmail"
-                  onChange={this.onEmailChange}
+                  value={this.state.email}
+                  onChange={e => this.setState({ email: e.target.value })}
                 />
               </FormGroup>
             </Col>
             <Col md={4}>
               <FormGroup>
-                <Label for="formName">First Name</Label>
+                <Label for="firstName">First Name</Label>
                 <Input
                   type="text"
-                  name="firstname"
-                  id="formFirstName"
-                  onChange={this.onFirstNameChange}
+                  name="firstName"
+                  id="firstName"
+                  value={this.state.firstName}
+                  onChange={e => this.setState({ firstName: e.target.value })}
                 />
               </FormGroup>
             </Col>
             <Col md={4}>
               <FormGroup>
-                <Label for="formlastName">Last Name</Label>
+                <Label for="lastName">Last Name</Label>
                 <Input
                   type="text"
-                  name="lastname"
-                  id="formLastName"
-                  onChange={this.onLastNameChange}
+                  name="lastName"
+                  id="lastName"
+                  value={this.state.lastName}
+                  onChange={e => this.setState({ lastName: e.target.value })}
                 />
               </FormGroup>
             </Col>
           </Row>
           <FormGroup>
-            <Label for="formAddress">Address</Label>
+            <Label for="address">Address</Label>
             <Input
               type="text"
               name="address"
-              id="formAddress"
-              onChange={this.onAddressChanged}
+              id="address"
+              value={this.state.address}
+              onChange={e => this.setState({ address: e.target.value })}
             />
           </FormGroup>
           <Row form>
             <Col md={6}>
               <FormGroup>
-                <Label for="formCity">City</Label>
+                <Label for="city">City</Label>
                 <Input
                   type="text"
                   name="city"
-                  id="formCity"
-                  onChange={this.state.onCityChanged}
+                  id="city"
+                  value={this.state.city}
+                  onChange={e => this.setState({ city: e.target.value })}
                 />
               </FormGroup>
             </Col>
@@ -151,47 +139,54 @@ class Contact extends React.Component {
                   type="text"
                   name="state"
                   id="formState"
-                  onChange={this.state.onStateChanged}
+                  value={this.state.stateName}
+                  onChange={e => this.setState({ stateName: e.target.value })}
                 />
               </FormGroup>
             </Col>
             <Col md={2}>
               <FormGroup>
-                <Label for="formZip">Zip Code</Label>
+                <Label for="zipCode">Zip Code</Label>
                 <Input
                   type="text"
-                  name="zipcode"
-                  id="formZip"
-                  onChange={this.state.onZipCodeChanged}
+                  name="zipCode"
+                  id="zipCode"
+                  value={this.state.zipCode}
+                  onChange={e => this.setState({ zipCode: e.target.value })}
                 />
               </FormGroup>
             </Col>
             <Col md={12}>
               <FormGroup>
-                <Label for="formPhoneNumber">Phone Number</Label>
+                <Label for="phoneNumber">Phone Number</Label>
                 <Input
-                  type="number"
-                  name="phonenumber"
-                  id="phonenumber"
-                  onChange={this.state.onPhoneNumberChanged}
+                  type="text"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  value={this.state.phoneNumber}
+                  onChange={e => this.setState({ phoneNumber: e.target.value })}
                 />
               </FormGroup>
             </Col>
             <Col md={12}>
               <FormGroup>
-                <Label for="formDescription">
+                <Label for="description">
                   Brief Description of Desired Services
                 </Label>
                 <Input
                   type="textarea"
                   name="description"
-                  id="formDescription"
-                  onChange={this.state.onDescriptionChanged}
+                  id="description"
+                  value={this.state.description}
+                  onChange={e => this.setState({ description: e.target.value })}
                 />
               </FormGroup>
             </Col>
           </Row>
-          <Button color="primary"> Submit! </Button>
+          <Button color="primary" type="submit">
+            {" "}
+            Submit!{" "}
+          </Button>
         </Form>
       </div>
     );

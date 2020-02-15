@@ -44,26 +44,15 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: true
   })
 );
+app.use(bodyParser.json({ extended: true }));
 
 app.post("/send", (req, res) => {
-  const output = `
-    <p>You have a new contact request</p>
-    <h3>Contact Details</h3>
-    <ul>  
-      <li>firstName: ${req.body.firstName}</li>
-      <li>lastName: ${req.body.lastName}</li>
-      <li>Email: ${req.body.email}</li>
-      <li>Phone: ${req.body.phone}</li>
-    </ul>
-    <h3>Message</h3>
-    <p>${req.body.message}</p>
-  `;
+  const output = req.body;
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -81,11 +70,23 @@ app.post("/send", (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"Nodemailer Contact" <casey.pastella@cnu.edu>', // sender address
-    to: "casey.pastella@cnu.edu", // list of receivers
-    subject: "Node Contact Request", // Subject line
+    from: '"New Client Contact Request" <casey.pastella@cnu.edu>', // sender address
+    to: "chrismoncarelandscaping@yahoo.com", // list of receivers
+    subject: "New Client Contact Request", // Subject line
     text: "Hello world?", // plain text body
-    html: output // html body
+    html: `<p>You have a new contact request</p>
+    <h3>Contact Details</h3>
+    <ul>  
+      <li>Email:  ${output.email} </li>
+      <li>First Name: ${output.firstName} </li>
+      <li>Last Name: ${output.lastName} </li>
+      <li>Phone Number: ${output.phoneNumber} </li>
+      <li>Address: ${output.address} </li>
+      <li>State: ${output.stateName} </li>
+      <li>City: ${output.city} </li>
+      <li>Zip Code: ${output.zipCode} </li>
+      <li>Description of Services Desired: ${output.description} </li>
+    </ul>`
   };
 
   // send mail with defined transport object

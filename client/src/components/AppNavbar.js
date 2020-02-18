@@ -77,6 +77,11 @@ class AppNavbar extends Component {
       <div>
         <Navbar color="dark" dark expand="sm" id="navbar">
           <NavbarBrand className="navbar-brand" href="/">
+            <img
+              src={process.env.PUBLIC_URL + "logo1.png"}
+              width="65px"
+              alt="logo"
+            />{" "}
             Chrismon Care Landscaping
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
@@ -87,16 +92,20 @@ class AppNavbar extends Component {
                 <DropdownToggle nav caret>
                   Services
                 </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem href="/lawncare">Lawn care</DropdownItem>
+                <DropdownMenu>
+                  <DropdownItem className="links" href="/lawncare">
+                    Lawn care
+                  </DropdownItem>
 
-                  <DropdownItem href="/installs">
+                  <DropdownItem className="links" href="/installs">
                     Mulch and bed installation
                   </DropdownItem>
 
-                  <DropdownItem href="/hardscapes">Hardscapes</DropdownItem>
+                  <DropdownItem className="links" href="/hardscapes">
+                    Hardscapes
+                  </DropdownItem>
 
-                  <DropdownItem href="/pruning">
+                  <DropdownItem className="links" href="/pruning">
                     Pruning and Tree care
                   </DropdownItem>
                 </DropdownMenu>

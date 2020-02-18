@@ -1,4 +1,14 @@
-.header {
-    background-size: cover;
-    position: relative; 
+.home {
+  background-color: gray;
+  font-family: Verdana, sans-serif;
+}
+
+@media screen and (max-width: 400) {
+  .home {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }

@@ -1,6 +1,42 @@
 .page-footer {
-  background-color: gray;
+  background-color: #232a2e;
   margin-top: 100px;
   color: white;
-  border-top: 5px solid white;
+  border-top: 5px solid gray;
+}
+.footer-copyright {
+  background-color: #1b1e24;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
+  height: 50px;
+}
+.footer {
+  padding-top: 50px;
+}
+
+a:link {
+  color: white;
+}
+a:visited {
+  color: white;
+}
+a:hover {
+  color: blue;
+  text-decoration: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .page-footer {
+    font-size: 12px;
+    height: auto;
+    margin-top: auto;
+  }
+  .footer-copyright {
+    font-size: 12px;
+  }
+  .text-uppercase {
+    font-size: 17px;
+  }
+  .footertitle {
+    display: none;
+  }
 }

@@ -16,9 +16,9 @@ import "./Cards.css";
 const Cards = props => {
   return (
     <div>
-      <Container className="container">
+      <Container fluid={true} className="container">
         <Row>
-          <Col sm="4">
+          <Col sm="6">
             <Card className="card1">
               <CardImg
                 top
@@ -27,18 +27,18 @@ const Cards = props => {
                 alt="Card Image cap"
               />
               <CardBody>
-                <CardTitle>Hardscapes</CardTitle>
-                <CardText>
+                <CardTitle className="cardtitle">Hardscapes</CardTitle>
+                <CardText className="cardtext">
                   Make your dream patio or sidewalks come to life with Chrismon
                   Care Landscaping!
                 </CardText>
                 <Button color="primary" href="/hardscapes">
-                  Contact Us!
+                  Hardscapes
                 </Button>
               </CardBody>
             </Card>
           </Col>
-          <Col sm="4">
+          <Col sm="6">
             <Card className="card2">
               <CardImg
                 top
@@ -47,18 +47,20 @@ const Cards = props => {
                 alt="Card Image cap"
               />
               <CardBody>
-                <CardTitle>Lawn Care</CardTitle>
-                <CardText>
+                <CardTitle className="cardtitle">Lawn Care</CardTitle>
+                <CardText className="cardtext">
                   Create the yard of your dreams or maintain an existing
                   beautiful lawn with Chrismon Care Landscaping!
                 </CardText>
                 <Button color="primary" href="/lawncare">
-                  Contact Us!
+                  Lawn Care
                 </Button>
               </CardBody>
             </Card>
           </Col>
-          <Col xs="4">
+        </Row>
+        <Row className="mt-5">
+          <Col xs="6">
             <Card className="card3">
               <CardImg
                 top
@@ -67,13 +69,35 @@ const Cards = props => {
                 alt="Card Image cap"
               />
               <CardBody>
-                <CardTitle>Pruning</CardTitle>
-                <CardText>
+                <CardTitle className="cardtitle">Pruning</CardTitle>
+                <CardText className="cardtext">
                   Turn your bushes into works of art or manicure old trees and
                   shrubs using Chrismon Care Landscaping!
                 </CardText>
                 <Button color="primary" href="/pruning">
-                  Contact Us!
+                  Pruning
+                </Button>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col sm="6">
+            <Card className="card4">
+              <CardImg
+                top
+                width="100%"
+                src={process.env.PUBLIC_URL + "/jpeg-8.jpg"}
+                alt="Card Image cap"
+              />
+              <CardBody>
+                <CardTitle className="cardtitle">
+                  Mulch and Bed Installation
+                </CardTitle>
+                <CardText className="cardtext">
+                  Mulch existing beds in your landscape or create brand new bed
+                  spaces with flowers or shrubs with Chrismon Care Landscaping!
+                </CardText>
+                <Button color="primary" href="/hardscapes">
+                  Hardscapes
                 </Button>
               </CardBody>
             </Card>

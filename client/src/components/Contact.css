@@ -1,0 +1,15 @@
+.form {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
+}
+.contactpage {
+  background-color: gray;
+}
+label {
+  color: white;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+}

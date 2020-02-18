@@ -6,6 +6,7 @@ import Cards from "./Cards";
 import AppNavbar from "./AppNavbar";
 import "./Home.css";
 import { Container } from "reactstrap";
+import Footer from "./Footer";
 
 class Home extends Component {
   static propTypes = {
@@ -14,12 +15,12 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <div className="header">
-          <AppNavbar />
-          <Example />
-        </div>
+      <div className="home">
+        <AppNavbar />
+        <Example />
+
         <Cards />
+        <Footer />
       </div>
     );
   }

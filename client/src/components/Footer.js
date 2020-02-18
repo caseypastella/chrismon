@@ -3,58 +3,65 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="page-footer font-small blue pt-4">
+    <div className="footer">
+      <footer className="page-footer font-small special-color-dark pt-4">
         <div className="container-fluid text-center text-md-left">
           <div className="row">
-            <div className="col-md-6 mt-md-0 mt-3">
-              <h5 className="text-uppercase">Footer Content</h5>
+            <div className="col-md-6 footertitle">
+              <h5 className="text-uppercase">Chrismon Care Landscaping</h5>
+
               <p>
-                Here you can use rows and columns to organize your footer
-                content.
+                For beautiful and professional landscape services, Chrismon Care
+                Landscaping has years of experience in commerical and
+                residential landscapes. We can create the yard of your dreams or
+                maintain your existing beautiful landscape.
               </p>
             </div>
 
-            <hr className="clearfix w-100 d-md-none pb-3" />
-
-            <div className="col-md-3 mb-md-0 mb-3">
-              <h5 className="text-uppercase">Links</h5>
+            <div className="col-md-3">
+              <h5 className="text-uppercase">Social Media</h5>
 
               <ul className="list-unstyled">
                 <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
+                  <a
+                    target="_blank"
+                    title="follow me on facebook"
+                    href="https://www.facebook.com/PLACEHOLDER"
+                  >
+                    <img
+                      alt="follow me on facebook"
+                      src="https://c866088.ssl.cf3.rackcdn.com/assets/facebook30x30.png"
+                      border="0px"
+                    />{" "}
+                    Follow Us on Facebook
+                  </a>
                 </li>
               </ul>
             </div>
 
-            <div className="col-md-3 mb-md-0 mb-3">
-              <h5 className="text-uppercase">Links</h5>
+            <div className="col-md-3">
+              <h5 className="text-uppercase">Services</h5>
 
               <ul className="list-unstyled">
                 <li>
-                  <a href="#!">Link 1</a>
+                  <a href="/pruning">Pruning</a>{" "}
                 </li>
                 <li>
-                  <a href="#!">Link 2</a>
+                  <a href="/hardscapes">Hardscapes</a>{" "}
                 </li>
                 <li>
-                  <a href="#!">Link 3</a>
+                  <a href="/installs">Mulch and Bed Installs</a>
                 </li>
                 <li>
-                  <a href="#!">Link 4</a>
+                  <a href="/lawncare">Lawn Care</a>
                 </li>
               </ul>
             </div>
           </div>
+        </div>
+
+        <div className="footer-copyright text-center pt-3">
+          @2020 Copyright: <a href="/">Chrismoncarelandscaping.com</a>
         </div>
       </footer>
     </div>

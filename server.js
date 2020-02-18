@@ -7,8 +7,6 @@ const app = express();
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
-const contact = require("./routes/api/contact");
-
 // Bodyparser Middleware
 app.use(express.json());
 app.use(cors());
@@ -60,11 +58,18 @@ app.post("/send", (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: config.get("USER"),
-      pass: config.get("PASSWORD")
+      user: "casey.pastella@cnu.edu",
+      pass: "Assasin@123"
     },
     tls: {
       rejectUnauthorized: false
+    }
+  });
+  transporter.verify((error, success) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Server is ready to take messages");
     }
   });
 

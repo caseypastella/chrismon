@@ -24,7 +24,7 @@ a:hover {
   text-decoration: none !important;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   .page-footer {
     font-size: 12px;
     height: auto;

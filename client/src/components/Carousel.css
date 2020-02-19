@@ -9,7 +9,7 @@
   height: 700px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .carousel {
     width: auto;
     height: auto;

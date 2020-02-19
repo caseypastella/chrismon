@@ -9,7 +9,7 @@
   padding-left: 20px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .logo {
     width: 50px;
   }

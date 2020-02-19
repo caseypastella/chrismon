@@ -3,7 +3,7 @@
   font-family: Verdana, sans-serif;
 }
 
-@media screen and (max-width: 400) {
+@media screen and (max-width: 500) {
   .home {
     width: 100%;
     padding-left: 0px;

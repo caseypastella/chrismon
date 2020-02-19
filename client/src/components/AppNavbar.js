@@ -56,38 +56,36 @@ class AppNavbar extends Component {
             <strong>{user ? `Welcome ${user.name}` : ""}</strong>
           </span>
         </NavLink>
-        <NavLink>
-          <Logout />
-        </NavLink>
+        <Logout />
       </Fragment>
     );
 
     const guestLinks = (
       <Fragment>
-        <NavLink>
-          <RegisterModal />
-        </NavLink>
-        <NavLink>
-          <LoginModal />
-        </NavLink>
+        <RegisterModal />
+        <LoginModal />
       </Fragment>
     );
 
     return (
       <div>
         <Navbar color="dark" dark expand="sm" id="navbar">
-          <NavbarBrand className="navbar-brand" href="/">
+          <NavbarBrand className="navbar-brand mr-auto" href="/">
             <img
               src={process.env.PUBLIC_URL + "logo1.png"}
               width="65px"
               alt="logo"
+              className="logo"
             />{" "}
             Chrismon Care Landscaping
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler onClick={this.toggle} className="mr-2" />
 
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="mr-auto">
+            <Nav className="mr-auto" className="navlinkcontact">
+              <NavItem>
+                <NavLink href="/contact">Contact</NavLink>
+              </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Services
@@ -110,9 +108,8 @@ class AppNavbar extends Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              <NavLink href="/contact">Contact</NavLink>
             </Nav>
-            <Nav className="ml-auto">
+            <Nav className="ml-auto navlink">
               {isAuthenticated ? authLinks : guestLinks}
             </Nav>
           </Collapse>

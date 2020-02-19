@@ -11,7 +11,7 @@ const Lawncare = () => {
         <AppNavbar />
       </div>
       <Container className="mt-5" fluid={true}>
-        <Jumbotron>
+        <Jumbotron className="jumbotron">
           <h1 className="display-3"> Lawn Care </h1>
           <p className="lead">
             {" "}

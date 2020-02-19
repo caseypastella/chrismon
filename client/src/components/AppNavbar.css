@@ -4,3 +4,28 @@
 #navbar {
   font-family: Verdana, sans-serif;
 }
+.navlinkcontact {
+  margin-top: auto;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 400px) {
+  .logo {
+    width: 50px;
+  }
+  .navbar-brand {
+    font-size: 15px !important;
+  }
+  a {
+    font-size: 14px;
+  }
+  .navlink {
+    padding: auto;
+    display: inline !important;
+  }
+  .navlinkcontact {
+    padding: auto;
+    margin-left: auto;
+    display: inline-block !important;
+  }
+}

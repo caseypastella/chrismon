@@ -36,20 +36,23 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   .card1 {
-    margin-left: 17px;
+    width: 15rem;
+    margin: auto;
   }
   .card2 {
-    margin-top: 20px;
-    margin-left: 17px;
+    width: 15rem;
+    margin: auto;
+    margin-top: 40px;
   }
   .card3 {
-    margin-top: -20px;
-    margin-left: 17px;
+    width: 15rem;
+    margin: auto;
   }
   .card4 {
-    margin-top: 20px;
-    margin-left: 17px;
+    width: 15rem;
+    margin: auto;
+    margin-top: 40px;
   }
 }

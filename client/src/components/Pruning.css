@@ -21,3 +21,34 @@
   font-size: 25px;
   font-weight: bold;
 }
+
+@media screen and (max-width: 400px) {
+  .lawncare {
+    display: inline-block;
+  }
+  .mediaImg {
+    width: 300px !important;
+    height: 200px !important;
+    margin-left: 25px;
+  }
+  .mediaBody {
+    font-size: 15px;
+    margin-top: 250px;
+    margin-left: -260px !important;
+    margin-right: 50px;
+  }
+
+  .jumbotron {
+    width: 350px;
+  }
+  .mediaHeading {
+    font-size: 20px !important;
+  }
+  h1 {
+    font-size: 40px !important;
+    font-weight: bold;
+  }
+  p {
+    font-size: 15px !important;
+  }
+}

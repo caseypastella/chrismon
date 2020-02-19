@@ -60,7 +60,7 @@ const Cards = props => {
           </Col>
         </Row>
         <Row className="mt-5">
-          <Col xs="6">
+          <Col sm="6">
             <Card className="card3">
               <CardImg
                 top

@@ -12,8 +12,8 @@ const Pruning = () => {
       </div>
       <Container className="mt-5" fluid={true}>
         <Jumbotron className="jumbotron">
-          <h1 className="display-3"> Pruning and Tree Care </h1>
-          <p className="lead">
+          <h1 id="jumbotronTitle"> Pruning and Tree Care </h1>
+          <p className="lead" id="jumbotronParagraph">
             {" "}
             Pruning done by a trained professional with years of experience in
             pruning various types of shrubbery and trees in many different types
@@ -30,16 +30,17 @@ const Pruning = () => {
       </Container>
       <Container className=" container mt-5" fluid={true}>
         <Media>
-          <Media left href="#">
+          <Media left href="">
             <Media
               object
               src={process.env.PUBLIC_URL + "/jpeg-11.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading id="mediaHeading">
               Shrubbery
             </Media>
             From large shrubs to small bushes, Chrismon care landscaping can
@@ -48,16 +49,17 @@ const Pruning = () => {
           </Media>
         </Media>
         <Media className="mt-5">
-          <Media left href="#">
+          <Media left href="">
             <Media
               object
               src={process.env.PUBLIC_URL + "/jpeg-5.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading id="mediaHeading">
               Trees
             </Media>
             Are Tree branches hanging over your house? Are you worried they may
@@ -67,16 +69,17 @@ const Pruning = () => {
           </Media>
         </Media>
         <Media className="mt-5">
-          <Media left href="#">
+          <Media left href="">
             <Media
               object
               src={process.env.PUBLIC_URL + "/jpeg-7.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading id="mediaHeading">
               Cutbacks
             </Media>
             Old and unmaintained plants such as roses and laraiope need to be

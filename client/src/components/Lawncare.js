@@ -12,8 +12,8 @@ const Lawncare = () => {
       </div>
       <Container className="mt-5" fluid={true}>
         <Jumbotron className="jumbotron">
-          <h1 className="display-3"> Lawn Care </h1>
-          <p className="lead">
+          <h1 id="jumbotronTitle"> Lawn Care </h1>
+          <p className="lead" id="jumbotronParagraph">
             {" "}
             Professional Lawn care provided by Chrismon Care Landscaping
             including lawn mowing, weed eating, edging, grass seed, aerating,
@@ -28,51 +28,54 @@ const Lawncare = () => {
         </Jumbotron>
       </Container>
       <Container className=" container mt-5" fluid={true}>
-        <Media>
+        <Media className="media">
           <Media left href="#">
             <Media
               object
               src={process.env.PUBLIC_URL + "/jpeg-11.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading className="mediaHeading" id="mediaHeading">
               Lawn Mowing, Weed Eating, and Edging
             </Media>
             Our typical lawn care maintenance schedule for our customers always
             includes mowing the lawn, weed eating, and edging as well.
           </Media>
         </Media>
-        <Media className="mt-5">
+        <Media className="mt-5 media">
           <Media left href="#">
             <Media
               object
               src={process.env.PUBLIC_URL + "/jpeg-5.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading className="mediaHeading" id="mediaHeading">
               Grass seed and Aeration
             </Media>
             Bring your lawn back to life or maintain your existing beautiful
             yard with or seasonal aerating services and grass seeding as well.
           </Media>
         </Media>
-        <Media className="mt-5">
+        <Media className="mt-5 media">
           <Media left href="#">
             <Media
               object
               src={process.env.PUBLIC_URL + "/jpeg-7.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading className="mediaHeading" id="mediaHeading">
               Weed Maintenance
             </Media>
             Is your lawn filled with unwanted weeds? Chrismon Care Landscaping

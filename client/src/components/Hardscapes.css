@@ -2,7 +2,7 @@
   width: 500px;
   height: 300px;
   box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.5), 0 10px 20px 0 rgba(0, 0, 0, 0.5);
-  border: 2px solid black !important;
+  border: 2px solid black;
 }
 .hardscapes {
   background-color: gray;
@@ -22,32 +22,85 @@
   font-weight: bold;
 }
 @media screen and (max-width: 500px) {
-  .lawncare {
+  .hardscapes {
     display: inline-block;
   }
   .mediaImg {
-    width: 300px !important;
-    height: 200px !important;
+    width: 350px;
+    height: 200px;
+    margin-left: 20px;
+  }
+  .jumbotron {
+    width: auto;
+  }
+
+  #jumbotronTitle {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  #jumbotronParagraph {
+    font-size: 20px;
+  }
+
+  #mediaBody {
+    font-size: 15px;
+    margin-top: 250px;
+    margin-left: -340px;
+    margin-right: 50px;
+    text-align: center;
+  }
+  #img {
+    width: 350px;
+    height: 200px;
+    margin-left: 20px;
+  }
+  #mediaHeading {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+@media screen and (max-width: 400px) {
+  .hardscapes {
+    display: inline-block;
+  }
+  .mediaImg {
+    width: 300px;
+    height: 200px;
     margin-left: 25px;
   }
   .mediaBody {
     font-size: 15px;
     margin-top: 250px;
-    margin-left: -260px !important;
+    margin-left: -260px;
     margin-right: 50px;
   }
 
   .jumbotron {
-    width: 350px;
+    width: auto;
+    height: auto;
   }
-  .mediaHeading {
-    font-size: 20px !important;
-  }
-  h1 {
-    font-size: 40px !important;
+  #jumbotronTitle {
+    font-size: 30px;
     font-weight: bold;
   }
-  p {
-    font-size: 15px !important;
+  #jumbotronParagraph {
+    font-size: 15px;
+  }
+  #mediaHeading {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  #img {
+    width: 300px;
+    height: 200px;
+    margin-left: 25px;
+  }
+  #mediaBody {
+    font-size: 15px;
+    margin-top: 250px;
+    margin-left: -260px;
+    margin-right: 50px;
+    text-align: left;
   }
 }

@@ -12,8 +12,8 @@ const Installs = () => {
       </div>
       <Container className="mt-5" fluid={true}>
         <Jumbotron className="jumbotron">
-          <h1 className="display-3"> Mulch and Sod Installation </h1>
-          <p className="lead">
+          <h1 className="jumbotronTitle"> Mulch and Sod Installation </h1>
+          <p className="jumbotronParagraph">
             {" "}
             Give your flower beds a new coat of mulch or install a new bed
             anywhere on your landscape with Chrismon Care Landscaping!{" "}
@@ -34,9 +34,10 @@ const Installs = () => {
               src={process.env.PUBLIC_URL + "/jpeg-11.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
+          <Media body className="mediaBody" id="mediaBody">
             <Media heading className="mediaHeading">
               Mulch Installation
             </Media>
@@ -51,9 +52,10 @@ const Installs = () => {
               src={process.env.PUBLIC_URL + "/jpeg-5.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
+          <Media body className="mediaBody" id="mediaBody">
             <Media heading className="mediaHeading">
               New Bed Space Installation
             </Media>
@@ -70,9 +72,10 @@ const Installs = () => {
               src={process.env.PUBLIC_URL + "/jpeg-7.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
+          <Media body className="mediaBody" id="mediaBody">
             <Media heading className="mediaHeading">
               Sod Installation
             </Media>

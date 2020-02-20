@@ -69,7 +69,7 @@ class AppNavbar extends Component {
 
     return (
       <div>
-        <Navbar color="dark" dark expand="sm" id="navbar">
+        <Navbar color="dark" dark expand="md" id="navbar">
           <NavbarBrand className="navbar-brand mr-auto" href="/">
             <img
               src={process.env.PUBLIC_URL + "logo1.png"}

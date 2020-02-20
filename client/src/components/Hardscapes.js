@@ -12,13 +12,12 @@ const Hardscapes = () => {
       </div>
       <Container className="mt-5" fluid={true}>
         <Jumbotron className="jumbotron">
-          <h1 className="display-3"> Hardscapes </h1>
-          <p className="lead">
+          <h1 id="jumbotronTitle"> Rock and Gravel </h1>
+          <p className="lead" id="jumbotronParagraph">
             {" "}
             From driveway extensions to full rock beds with shurbbery, Chrismon
             Care Landscaping can fulfill all your needs regarding services
-            including brick paving, rock and stone installation, and gravel
-            installation!{" "}
+            including rock and stone installation and gravel installation!{" "}
           </p>
           <p className="lead">
             <Button color="primary" href="/contact">
@@ -36,14 +35,15 @@ const Hardscapes = () => {
               src={process.env.PUBLIC_URL + "/jpeg-11.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
-              Brick Paving
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading className="mediaHeading" id="mediaHeading">
+              Gravel
             </Media>
-            Paving services including sidewalks, patios, small driveways, or any
-            part of your landscape you wish to install brick pavers.
+            Extend your existing driveway or add a gravel sidewalk to your home
+            with Chrismon Care Landscaping.
           </Media>
         </Media>
         <Media className="mt-5">
@@ -53,15 +53,16 @@ const Hardscapes = () => {
               src={process.env.PUBLIC_URL + "/jpeg-15.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading className="mediaHeading" id="mediaHeading">
               Rock and Stone
             </Media>
-            Rockwalls, stone edging around beds and walkways, and firepits.
-            Chrismon Care Landscaping can create the perfect design to
-            complement any existing hardscapes or landscapes in your yard.
+            Rockwalls, retaining walls, and firepits. Chrismon Care Landscaping
+            can create the perfect design to complement any existing hardscapes
+            or landscapes in your yard.
           </Media>
         </Media>
         <Media className="mt-5">
@@ -71,15 +72,15 @@ const Hardscapes = () => {
               src={process.env.PUBLIC_URL + "/jpeg-7.jpg"}
               alt="hardscapes"
               className="mediaImg"
+              id="img"
             />
           </Media>
-          <Media body className="mediaBody">
-            <Media heading className="mediaHeading">
-              Gravel and Small stone
+          <Media body className="mediaBody" id="mediaBody">
+            <Media heading className="mediaHeading" id="mediaHeading">
+              Small stone
             </Media>
             Whether it be a walkway or a bed space, Chrismon Care Landscaping
-            can install gravel and small stone walkways or small rock beds that
-            include shurbbery.
+            can install small rock beds that include shurbbery or flowers.
           </Media>
         </Media>
       </Container>

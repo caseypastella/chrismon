@@ -36,6 +36,7 @@ const Footer = () => {
                     Follow Us on Facebook
                   </a>
                 </li>
+                <li>(757) - 604 - 7817</li>
               </ul>
             </div>
 

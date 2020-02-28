@@ -69,7 +69,7 @@ class AppNavbar extends Component {
 
     return (
       <div>
-        <Navbar color="dark" dark expand="md" id="navbar">
+        <Navbar color="dark" dark expand="lg" id="navbar">
           <NavbarBrand className="navbar-brand mr-auto" href="/">
             <img
               src={process.env.PUBLIC_URL + "logo1.png"}
@@ -82,7 +82,7 @@ class AppNavbar extends Component {
           <NavbarToggler onClick={this.toggle} className="mr-2" />
 
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="mr-auto" className="navlinkcontact">
+            <Nav className="mr-auto" className="navlinkcontact" id="navlinks">
               <NavItem>
                 <NavLink href="/contact">Contact</NavLink>
               </NavItem>

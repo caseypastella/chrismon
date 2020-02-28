@@ -114,6 +114,9 @@ class LoginModal extends Component {
                 <Button color="primary" style={{ marginTop: "2rem" }} block>
                   Login
                 </Button>
+                <Button color="danger" style={{ marginTop: "2rem" }}>
+                  Forgot Password?
+                </Button>
               </FormGroup>
             </Form>
           </ModalBody>

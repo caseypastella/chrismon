@@ -1,11 +1,20 @@
-import React from "react";
+/*import React from "react";
 
-const Account = () => {
-  return (
-    <div>
-      <p> ACcount </p>
-    </div>
-  );
+class AccountPage extends React.Component {
+  state = {
+    modal: false,
+    email: "",
+    data: { password: "" },
+    error: {}
+  };
+
+  static propTypes = {
+    isAuthenticated: PropTypes.bool,
+    error: PropTypes.object.isRequired
+  };
+}
+const mapStateToProps = ({ user }) => {
+  return { isAuthenticated: user.isAuthenticated };
 };
 
-export default Account;
+export default connect(mapStateToProps)(Account);*/

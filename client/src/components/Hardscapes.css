@@ -21,6 +21,79 @@
   font-size: 25px;
   font-weight: bold;
 }
+
+@media screen and (max-width: 800px) {
+  .hardscapes {
+    display: inline-block;
+  }
+  .mediaImg {
+    width: 500px;
+    height: 500px;
+    margin-left: 20px;
+  }
+  .jumbotron {
+    width: auto;
+  }
+
+  #jumbotronTitle {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  #jumbotronParagraph {
+    font-size: 20px;
+  }
+
+  #mediaBody {
+    font-size: 15px;
+    margin-top: 350px;
+    margin-left: -550px;
+    margin-right: 50px;
+    text-align: center;
+  }
+  #img {
+    width: 500px;
+    height: 300px;
+    margin-left: 90px;
+  }
+  #mediaHeading {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+@media screen and (max-width: 770px) {
+  .hardscapes {
+    display: inline-block;
+  }
+
+  .jumbotron {
+    width: auto;
+  }
+
+  #jumbotronTitle {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  #jumbotronParagraph {
+    font-size: 20px;
+  }
+
+  #mediaBody {
+    font-size: 15px;
+    margin-top: 350px;
+    margin-left: -470px;
+    margin-right: 50px;
+    text-align: center;
+  }
+  #img {
+    width: 500px;
+    height: 300px;
+    margin-left: 10px;
+  }
+  #mediaHeading {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
 @media screen and (max-width: 500px) {
   .hardscapes {
     display: inline-block;
@@ -59,6 +132,7 @@
     font-weight: bold;
   }
 }
+
 @media screen and (max-width: 400px) {
   .hardscapes {
     display: inline-block;

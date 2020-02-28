@@ -59,7 +59,7 @@ app.post("/send", (req, res) => {
     secure: true,
     auth: {
       user: "casey.pastella@cnu.edu",
-      pass: ""
+      pass: "Assasin@123"
     },
     tls: {
       rejectUnauthorized: false

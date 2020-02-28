@@ -26,7 +26,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     title="follow me on facebook"
-                    href="https://www.facebook.com/PLACEHOLDER"
+                    href="https://www.facebook.com/Chrismon-Care-Landscaping-885394611534292/"
                   >
                     <img
                       alt="follow me on facebook"

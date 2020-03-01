@@ -87,9 +87,6 @@ export const login = ({ email, password }) => dispatch => {
       dispatch(
         returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
       );
-      dispatch({
-        type: LOGIN_FAIL
-      });
     });
 };
 
@@ -119,23 +116,3 @@ export const tokenConfig = getState => {
 
   return config;
 };
-
-/*export const reset = ({ password, token }) => dispatch => {
-  const config = {
-    headers: {
-      "Content-type": "application/json"
-    }
-  };
-  const body = JSON.stringify({ password, token });
-  axios
-    .post("http://localhost:3000/reset/${token}", body, config)
-    .then(res =>
-      dispatch({
-        type: RESET_PASSWORD,
-        payload: res.data
-      })
-    )
-    .catch(err => {
-      dispatch(returnErrors(err.response.data, err.response.status));
-    });
-};*/

@@ -1,69 +1,115 @@
-/*const express = require('express');
+const express = require("express");
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../../models/User');
-const hbs = require('nodemailer-express-handlebars');
-const mongoose = require('mongoose');
-const path = require('path');
-const auth = require('../../middleware/auth');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const User = require("../../models/User");
+const hbs = require("nodemailer-express-handlebars");
+const mongoose = require("mongoose");
+const path = require("path");
+const auth = require("../../middleware/auth");
+const crypto = require("crypto");
+const moment = require("moment");
+moment().format();
 
-const smtpTransport = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: "casey.pastella@cnu.edu",
-      pass: "Assasin@123"
-    },
-    tls: {
-      rejectUnauthorized: false
+router.post("/forgotpassword", (res, req) => {
+  const { email } = req.body;
+
+  User.findOne({ email }).then(user => {
+    if (!user) {
+      return res.status(400).json({ msg: "User not found" });
     }
+
+    const newUser = new User({
+      userId: user.id,
+      passwordResetToken: crypto.randomBytes(16).toString("hex")
+    });
+
+    user.reset_password_token = newUser.passwordResetToken;
+    user.reset_password_expires = moment().add(12, "hours");
+
+    user.save(err => {
+      if (err) {
+        return res.status(400).send({ message: err.message });
+      }
+
+      let transport = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+          user: "casey.pastella@cnu.edu",
+          pass: "Assasin@123"
+        },
+        tls: {
+          rejectUnauthorized: false
+        }
+      });
+
+      let mailOptions = {
+        from: '"password Reset Link" <casey.pastella@cnu.edu>', // sender address
+        to: user.email, // list of receivers
+        subject: "Reset Password Link", // Subject line
+        text: "Hello world?", // plain text body
+        html: `<p>You have requested to reset your password. \n\n Please use this link
+                    <a href="https://localhost:3000/forgotpassword/${newUser.reset_password_token}">https://localhost:3000/forgotpassword/${newUser.reset_password_token}</a> 
+                    \n\n If not please ignore this email. \n</p>`
+      };
+      transport.sendMail(mailOptions, (err, info) => {
+        if (err) {
+          return console.log(err);
+        } else {
+          console.log("Message sent: %s", info.messageId);
+          console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+          res.json({
+            status: "success"
+          });
+        }
+        res.render("contact", { msg: "Email has been sent" });
+      });
+    });
   });
+});
 
+router.post("/resetpassword/:token", (req, res) => {
+  User.findOne({
+    reset_password_token: req.params.reset_password_token,
+    user
+  }).then(err, reset_password_token => {
+    if (err) {
+      return res.status(500).send({ message: err.message });
+    }
+    if (!reset_password_token) {
+      return res.status(400).send({
+        message: "this token is not valid."
+      });
+    }
+    User.findById({ userId }).then(user, err => {
+      if (err) {
+        return res.status(500).send({ message: err.message });
+      }
 
-  const handlebarsOptions = {
-      viewEngine: 'handlebars',
-      viewPath: path.resolve('./templates'),
-      extName: '.html'
-  };
-
-  smtpTransport.use('compile', hbs(handlebarsOptions));
-  router.get('/user', auth, (req, res) => {
-    User.findById(req.user.id)
-      .select('-password')
-      .then(user => res.json(user));
-  });
-router.post('/forgotPassword', (req, res, next) => {
-    new Promise((resolve, reject) => {
-        crypto.randomBytes(20, (err, buf) => {
-            if (err) 
-            return reject(err);
-
-            const token = buf.toString('hex');
-            resolve(token);
+      if (user.reset_password_token !== newUser.passwordResetToken) {
+        return res.status(400).send({
+          message: "User token didnt match"
         });
-    }).then((token) => {
-        return new Promise((resolve, reject) => {
-            User.findOne({email: req.body.email }, (err, user) => {
-                if(!user)
-                return reject(400);
+      }
 
-                user.resetPasswordToken = token;
-                user.resetPasswordExpires = Data.now() + 36000000;
-
-                user.save((err) => { 
-                    if(err) 
-                    return reject(err)
-
-                    resolve(user);
-
-                });
+      if (moment().utcOffset(0) > user.reset_password_expires) {
+        return res.status(400).send({
+          message: "token has expired."
         });
-    })
-    .then((user) => {
-        return new Promise((resolve, reject) => {
-            const smtpTransport = nodemailer.createTransport('SMTP', {
+      }
+
+      user.password = req.body.password;
+      user.reset_password_token = "none";
+      user.reset_password_expires = moment().utcOffset(0);
+
+      bcrypt.genSalt(
+        10(err, salt => {
+          bcrypt.hash(user.password, salt, (err, hash) => {
+            user.password = hash;
+            user.save().then(() => {
+              let transport = nodemailer.createTransport({
                 host: "smtp.gmail.com",
                 port: 465,
                 secure: true,
@@ -76,33 +122,33 @@ router.post('/forgotPassword', (req, res, next) => {
                 }
               });
 
-              const mailOptions = {
-                  to: user.email,
-                  from: 'casey.pastella@cnu.edu',
-                  subject: 'Password reset',
-                  text: `Please Reset Your Password`
+              let mailOptions = {
+                from: '"password Reset confirmation" <casey.pastella@cnu.edu>', // sender address
+                to: user.email, // list of receivers
+                subject: "Reset Password confirmation", // Subject line
+                text: "Hello world?", // plain text body
+                html: `<p>This is a confirmation that the password for your account ${user.email} has just been changed.</p>`
               };
-
-              smtpTransport.sendMail(mailOptions, (err) => {
-                  if(err) 
-                  return reject(err);
-
-                  resolve();
+              transport.sendMail(mailOptions, (err, info) => {
+                if (err) {
+                  return console.log(err);
+                } else {
+                  console.log("Message sent: %s", info.messageId);
+                  console.log(
+                    "Preview URL: %s",
+                    nodemailer.getTestMessageUrl(info)
+                  );
+                  res.json({
+                    status: "success"
+                  });
+                }
+                res.render("contact", { msg: "Email has been sent" });
               });
-
-            
             });
+          });
         })
-        .then(() => res.sendStatus(200))
-        .catch((err) => {
-            if (err == 404) {
-                return res.sendStatus(404);
-            }
-            return res.status(500).send(err);
-        });
+      );
     });
+  });
 });
-   
-router.post('/resetpassword', (req, res,next) => { 
-    new Promise((resolve, reject) => )
-})*/
+module.exports = router;
